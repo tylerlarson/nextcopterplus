@@ -51,7 +51,7 @@ For the Futaba/OrangeRx S.Bus, please use the following cable available from Hob
 http://i.imgur.com/BMlI60q.jpg
 
 ===Serial receivers (OUT)===
-OpenAero2Serial outs serial data from the "AIL" pin of the KK2 board. Some serial formats require a cable adapter to function.
+OpenAero2Serial outputs serial data from the "AIL" pin of the KK2 board. Some serial formats require a cable adapter to function.
 
 || *Output format* || *Adapter* ||
 ||S.Bus || Yes - Same as input adapter||
