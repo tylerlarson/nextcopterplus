@@ -55,8 +55,8 @@ OpenAero2Serial outputs serial data from the "AIL" pin of the KK2 board. Some se
 
 || *Output format* || *Adapter* ||
 ||S.Bus || Yes - Same as input adapter||
-||Satellite || None||
-||Xtreme || None||
+||Satellite || No, but has 5V signal level||
+||Xtreme || No||
 
 ===Binding satellite receivers===
 OpenAero2Serial makes it easy to bind Satellite receivers without the need for a separate host receiver.
