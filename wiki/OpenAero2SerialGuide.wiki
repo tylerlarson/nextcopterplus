@@ -9,7 +9,7 @@ A link to the latest beta version of OpenAero2Serial can be found on [http://www
 
 The following diagram shows the serial connections to the KK2 board.
 
-http://imgur.com/cY4xjWf
+http://imgur.com/cY4xjWf.jpg
 
 ==How do I connect the KK2 board in my model?==
 The KK2 board should be installed within your aircraft between your receiver and second flight controller, to stabilize your model.
