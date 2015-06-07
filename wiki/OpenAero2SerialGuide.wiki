@@ -31,7 +31,7 @@ While there are many brands available, the following have been tested.
  * [http://www.frsky-rc.com/ShowProducts.asp?id=119 FrSky D4R-II]
  * [http://www.frsky-rc.com/ShowProducts.asp?id=126 FrSky D8R-XP]
 
-===Serial receivers===
+===Serial receivers (IN)===
 Serial receivers also connect to the KK2 board via the *THR* input. Some of these require a cable adapter to function.
 
 For the Spektrum Satellite, please use the following cable available from HobbyKing.
@@ -50,8 +50,16 @@ For the Futaba/OrangeRx S.Bus, please use the following cable available from Hob
 
 http://i.imgur.com/BMlI60q.jpg
 
+===Serial receivers (OUT)===
+OpenAero2Serial outs serial data from the "AIL" pin of the KK2 board. Some serial formats require a cable adapter to function.
+
+|| *Output format* || *Adapter* ||
+||S.Bus || Yes - Same as input adapter||
+||Satellite || None||
+||Xtreme || None||
+
 ===Binding satellite receivers===
-OpenAero2 makes it easy to bind Satellite receivers without the need for a separate host receiver.
+OpenAero2Serial makes it easy to bind Satellite receivers without the need for a separate host receiver.
  # Ensure that the Satellite receiver is connected via the adapter cable.
  # Hold down the relevant button of the KK2 board as per the table below.
  # While holding down the button, apply power to the KK2 board. The attached Satellite receiver should start to blink rapidly. Release the button. 
@@ -67,7 +75,7 @@ OpenAero2 makes it easy to bind Satellite receivers without the need for a separ
 <wiki:video url="http://www.youtube.com/watch?v=c_x0GtdCm6o"/>
 
 ===Channel Order===
-OpenAero2 supports the JR/Spektrum and Fubata channel allocations.
+OpenAero2Serial supports the JR/Spektrum and Fubata channel allocations.
 
 || *JR/Spektrum* || *Futaba*||
 ||CH1: Throttle ||CH1: Aileron #1||
@@ -80,7 +88,7 @@ OpenAero2 supports the JR/Spektrum and Fubata channel allocations.
 ||CH8: Aux 3  ||CH8: Aux 2 ||
 
 ==How are the channels mapped? ==
-The OpenAero2 mixer presets support either conventional 'aeroplane mode' or 'flying-wing mode'.
+The OpenAero2Serial mixer presets support either conventional 'aeroplane mode' or 'flying-wing mode'.
 All unassigned channels, designated as 'none' by the mixer presets, can be manually customized for other purposes.
 Channels between CH8 and CH16 are passed through as-is.
 
@@ -96,7 +104,7 @@ The following channel assignment will apply to most conventional aeroplanes.
   * 8: Aux 3
 
 ==Using the mixer==
-OpenAero2 uses an updated mixer from OpenAeroVTOL and differs significantly from the older OpenAero2 Guides
+OpenAero2Serial uses an updated mixer from OpenAeroVTOL and differs significantly from the older OpenAero2Serial Guides
 
 ===RC source A:===
 You can select between any of the eight primary input channels, THR to AUX3.
