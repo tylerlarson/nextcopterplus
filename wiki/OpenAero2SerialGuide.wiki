@@ -7,7 +7,7 @@ The latest files are always listed at the bottom of the first post in the RCGrou
 
 A link to the latest beta version of OpenAero2Serial can be found on [http://www.rcgroups.com/forums/showpost.php?p=22394780&postcount=1 RC Groups.com]
 
-As shown in the following diagram, the two piezo buzzer output pins indicate the front of the KK2 board, while the four buttons indicate the rear of the board.
+The following diagram shows the serial connections to the KK2 board.
 
 http://imgur.com/cY4xjWf
 
@@ -32,7 +32,7 @@ While there are many brands available, the following have been tested.
  * [http://www.frsky-rc.com/ShowProducts.asp?id=126 FrSky D8R-XP]
 
 ===Serial receivers===
-Serial receivers connect to the KK2 board via the *Throttle* input. Some of these require a cable adapter to function.
+Serial receivers also connect to the KK2 board via the *THR* input. Some of these require a cable adapter to function.
 
 For the Spektrum Satellite, please use the following cable available from HobbyKing.
 [http://www.hobbyking.com/hobbyking/store/__24524__ZYX_S_DSM2_DSMJ_Satellite_Receiver_Cable.html ZYX-S DSM2/DSMJ Satellite Receiver Cable]
@@ -53,69 +53,74 @@ http://i.imgur.com/BMlI60q.jpg
 ===Binding satellite receivers===
 OpenAero2 makes it easy to bind Satellite receivers without the need for a separate host receiver.
  # Ensure that the Satellite receiver is connected via the adapter cable.
- # Hold down button 4 of the KK2 board.
- # While holding down button 4, apply power to the KK2 board. The attached Satellite receiver should start to blink rapidly. Release button 4. 
+ # Hold down the relevant button of the KK2 board as per the table below.
+ # While holding down the button, apply power to the KK2 board. The attached Satellite receiver should start to blink rapidly. Release the button. 
  # Switch on the TX in binding mode. The is usually done by holding down the Bind button on the TX module. The TX module should flash.
  # After a few seconds the Satellite will complete the binding process and will show a solid lit LED. 
+
+|| *Button* || *Binding mode* ||
+||Button 1 || DSM2 1024/22ms||
+||Button 2 || DSM2 2048/11ms||
+||Button 3 || DSMX 2048/22ms||
+||Button 4 || DSMX 2048/11ms||
 
 <wiki:video url="http://www.youtube.com/watch?v=c_x0GtdCm6o"/>
 
 ===Channel Order===
-OpenAero2 supports the JR/Spektrum, Fubata and Spektrum Satellite channel allocations.
+OpenAero2 supports the JR/Spektrum and Fubata channel allocations.
 
-|| *JR/Spektrum* || *Futaba*|| *Satellite* ||
-||CH1: Throttle ||CH1: Aileron #1|| CH1: Flap ||
-||CH2: Aileron #1 ||CH2: Elevator|| CH2: Aileron ||
-||CH3: Elevator ||CH3: Throttle|| CH3: Elevator ||
-||CH4: Rudder ||CH4: Rudder|| CH4: Rudder ||
-||CH5: Gear switch ||CH5: Gear switch|| CH5: Gear ||
-||CH6: Aux 1 ||CH6: Aileron #2|| CH6: Throttle ||
-||CH7: Aux 2 ||CH7: Aux 1|| CH7: AUX1 ||
-||CH8: Aux 3  ||CH8: Aux 2 || CH8: AUX2 ||
+|| *JR/Spektrum* || *Futaba*||
+||CH1: Throttle ||CH1: Aileron #1||
+||CH2: Aileron #1 ||CH2: Elevator||
+||CH3: Elevator ||CH3: Throttle||
+||CH4: Rudder ||CH4: Rudder||
+||CH5: Gear switch ||CH5: Gear switch||
+||CH6: Aux 1 ||CH6: Aileron #2||
+||CH7: Aux 2 ||CH7: Aux 1||
+||CH8: Aux 3  ||CH8: Aux 2 ||
 
-==How do I connect my servos?==
+==How are the channels mapped? ==
 The OpenAero2 mixer presets support either conventional 'aeroplane mode' or 'flying-wing mode'.
-
 All unassigned channels, designated as 'none' by the mixer presets, can be manually customized for other purposes.
+Channels between CH8 and CH16 are passed through as-is.
 
-===Aeroplane Mode===
 The following channel assignment will apply to most conventional aeroplanes.
 
-  * M1: Throttle - for CPPM users
-  * M2: None
-  * M3: None
-  * M4: None
-  * M5: Elevator
-  * M6: Left aileron
-  * M7: Right aileron
-  * M8: Rudder
+  * 1: Throttle
+  * 2: Aileron
+  * 3: Elevator
+  * 4: Rudder
+  * 5: Gear
+  * 6: Aux 1
+  * 7: Aux 2
+  * 8: Aux 3
 
-Where a single aileron servo is required, M6 will become the master and M7 will remain unassigned as 'none'.
+==Using the mixer==
+OpenAero2 uses an updated mixer from OpenAeroVTOL and differs significantly from the older OpenAero2 Guides
 
-===Flying-Wing Mode===
-  * M1: Throttle - for CPPM users
-  * M2: None
-  * M3: None
-  * M4: None
-  * M5: Elevator
-  * M6: Left elevon
-  * M7: Right elevon
-  * M8: Rudder
-
-===Servo Rate===
-Depending on the servo rate selected in the General Menu, the type of receiver you have, and whether Camstab mode is activated, the servo output rate varies. The various rates are illustrated in the table below.
-The rate varies from as low as your receiver sends, to up to 300Hz.
-
-Do not select a servo rate of "HIGH" unless you are sure that your servos are rated for it. Typically, analog servos should always be used with the servo rate set to "Low".
-
-|| *Receiver type* || *Servo rate setting*|| *Actual servo rate* ||
-|| None (Camstab ON)|| HIGH || ~300Hz `*`||
-|| Satellite (11ms) || HIGH || 90Hz `*`||
-|| S.Bus (11ms) || HIGH || 90Hz `*`||
-|| 50Hz PWM || N/A || 50Hz ||
-|| None (Camstab ON)|| LOW || 50Hz ||
-|| Satellite (Any)|| LOW|| 45Hz ||
-|| S.Bus (Any) || LOW|| 45Hz ||
-|| 27Hz CPPM || N/A || 27Hz ||
-
-*`*`Warning: Do not use these rates with analog servos.*
+===RC source A:===
+You can select between any of the eight primary input channels, THR to AUX3.
+===Volume (%):===
+This is the amount of the selected RC channel that is added to the output.
+===RC source B:===
+You can select between any of the eight primary input channels, THR to AUX3.
+===Volume (%):===
+This is the amount of the selected RC channel that is added to the output.
+===Roll gyro:===
+ON/OFF/Reverse.
+===Pitch gyro:===
+ON/OFF/Reverse.
+===Yaw gyro:===
+ON/OFF/Reverse.
+===Roll acc:===
+ON/OFF/Reverse.
+===Pitch acc:===
+ON/OFF/Reverse.
+===Ext. Source:===
+There are 16 possible source inputs. CH1 to CH8, then the roll/pitch/yaw gyros, roll/pitch accelerometers and the roll/pitch autolevel (IMU)
+===Volume (%):===
+This is the amount of the selected source that is added to the output.
+===Ext. Source:===
+There are 16 possible source inputs. CH1 to CH8, then the roll/pitch/yaw gyros, roll/pitch accelerometers and the roll/pitch autolevel (IMU)
+===Volume (%):===
+This is the amount of the selected source that is added to the output.
